@@ -29,7 +29,7 @@ class ViewConfig(apps.AppConfig):
             vs.run(force=True, update=True)
 
     def get_view_syncer_class(self, default='django_pgviews.models.ViewSyncer'):
-        return import_string(getattr(settings, 'PGVIEWS_SYNCER_CLASS', None) or default)
+        return import_string(getattr(settings, 'PGVIEWS_VIEW_SYNCER_CLASS', None) or default)
 
     def ready(self):
         """Find and setup the apps to set the post_migrate hooks for.
